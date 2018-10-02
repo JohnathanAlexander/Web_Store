@@ -37,7 +37,7 @@ public class ProductController {
 	}
 	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping("/getProduct")
-	public Product getProduct(@RequestParam("searchProductId") String productId) throws SQLException{
+	public Product getProduct(@RequestParam("searchProductId") int productId) throws SQLException{
 		System.out.println("hello");
 		service.getProductByProductId(productId);
 		return null;

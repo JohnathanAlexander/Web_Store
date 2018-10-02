@@ -14,7 +14,7 @@ public class ProductService{
 	@Autowired
 	ProductRepositoryImpl repository;
 	
-	public Product getProductByProductId(String productId) throws SQLException{
+	public Product getProductByProductId(int productId) throws SQLException{
 		Product product = repository.getProductByProductId(productId);
 		return product;
 	}
@@ -31,7 +31,7 @@ public class ProductService{
 	public String addNewProduct(Product product) throws SQLException, IOException {
 		String name = product.getTitle();
 		String desc = product.getDescription();
-		String prodId = product.getProductId();
+		int prodId = product.getProductId();
 		double cost = product.getCost();
 		double price = product.getPrice();
 		byte[] image = product.getImage();
@@ -39,13 +39,13 @@ public class ProductService{
 		int stock = product.getQuantityInStock();
 		int order = product.getQuantityOnOrder();
 		
-		String ret = repository.addNewProduct(
+		/*String ret = repository.addNewProduct(
 												name, desc, prodId,
 												cost, price, image,
 												imgExt, stock, order
-											 );
+											 );*/
 		
-		return ret;
+		return "";
 	}
 	public String getImageExtension(byte[] image) throws IOException {
 		String imageExtension = URLConnection.guessContentTypeFromStream(new ByteArrayInputStream(image));

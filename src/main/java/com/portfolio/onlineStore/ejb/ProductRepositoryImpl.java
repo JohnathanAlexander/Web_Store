@@ -34,7 +34,7 @@ public class ProductRepositoryImpl{
 			Product product = new Product();
 			
 			int recordId = myRs.getInt("recordId");
-			String productId = myRs.getString("productId");
+			int productId = myRs.getInt("productId");
 			String productName = myRs.getString("productName");
 			String productDescription = myRs.getString("productDescription");
 			double productPrice = myRs.getDouble("price");
@@ -43,13 +43,12 @@ public class ProductRepositoryImpl{
 			byte[] image = imageRetrieval(myRs, 6);
 			
 			
-			product.setRecordId(recordId);
 			product.setProductId(productId);
 			product.setTitle(productName);
 			product.setDescription(productDescription);
 			product.setPrice(productPrice);
 			product.setImage(image);
-			product.setImageExtension(imgExt);
+			product.setImageExt(imgExt);
 			list.add(product);
 		}
 		
@@ -88,31 +87,30 @@ public class ProductRepositoryImpl{
 		while(rs.next()) {
 			Product p = new Product();
 			
-			p.setRecordId(rs.getInt("recordId"));
-			p.setProductId(rs.getString("productId"));
+			p.setProductId(rs.getInt("productId"));
 			p.setTitle(rs.getString("productName"));
 			p.setDescription(rs.getString("productDescription"));
 			p.setPrice(rs.getDouble("price"));
 			p.setCost(rs.getDouble("cost"));
 			if(imageRetrieval(rs, 7) != null) {
 				p.setImage(imageRetrieval(rs, 7));
-				p.setImageExtension(rs.getString("imageExtension"));
+				p.setImageExt(rs.getString("imageExtension"));
 			}
 			p.setQuantityInStock(rs.getInt("quantityOnHand"));
 			p.setQuantityOnOrder(rs.getInt("quantityOnOrder"));
-			p.setTotalSalesLifetime(rs.getInt("totalSales"));
+			p.setTotalSales(rs.getInt("totalSales"));
 			
 			list.add(p);
 		}
 		return list;
 	}
 	
-	public Product getProductByProductId(String productId) throws SQLException{
+	public Product getProductByProductId(int productId) throws SQLException{
 		Product product = new Product();
 		
 		CallableStatement cStmt = this.conn.prepareCall("{getProductByProductId(?,?,?,?,?,?,?,?,?)}");
 		
-		cStmt.setString(1, productId);
+		cStmt.setInt(1, productId);
 		cStmt.registerOutParameter(2, Types.VARCHAR);
 		cStmt.registerOutParameter(3, Types.VARCHAR);
 		cStmt.registerOutParameter(4, Types.DECIMAL);
@@ -133,7 +131,7 @@ public class ProductRepositoryImpl{
 			//product.setImage(myRs.getBlob("image"));
 			product.setQuantityInStock(myRs.getInt("inStock"));
 			product.setQuantityOnOrder(myRs.getInt("onOrder"));
-			product.setTotalSalesLifetime(myRs.getInt("totalSalesLifetime"));
+			product.setTotalSales(myRs.getInt("totalSalesLifetime"));
 		}
 		return product;
 	}

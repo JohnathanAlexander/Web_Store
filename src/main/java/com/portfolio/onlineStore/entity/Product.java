@@ -1,36 +1,35 @@
 package com.portfolio.onlineStore.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "WEBSTORE.PRODUCT")
 public class Product{
-
-
-	private int recordId;
-
+	private int productId;
+	
 	private String title;
-
 	private String description;
-
-	private String productId;
-	private int quantityInStock;
-	private int quantityOnOrder;
-	private int totalSalesLifetime;
-
+	
 	private double cost;
-
 	private double price;
 	
-	
+	private int totalSales;
+	private int quantityInStock;
+	private int quantityOnOrder;
+
 	private byte[] image;
-	private String imageExtension;
+	private String imageExt;
+	
 	public Product() {}
-	public Product(String productId, String description, double price) {
+	public Product(int productId, String description, double price) {
 		this.productId = productId;
 		this.description = description;
 		this.price = price;
 	}
-	public Product(String productId, String title, String description,
+	public Product(int productId, String title, String description,
 				   double cost, double price, byte[] image,
 				   int qInStock, int qOnOrder, int totalSales){
 		this(productId, description, price);
@@ -39,50 +38,58 @@ public class Product{
 		this.image = image;
 		this.quantityInStock = qInStock;
 		this.quantityOnOrder = qOnOrder;
-		this.totalSalesLifetime = totalSales;
+		this.totalSales = totalSales;
 	}
-	public Product(String productId, String title, String description,
+	public Product(int productId, String title, String description,
 				   double price, int qInStock, byte[] image) {
 		this(productId, description, price);
 		this.title = title;
 		this.quantityInStock = qInStock;
 		this.image = image;
 	}
-	public int getRecordId() {
-		return recordId;
+	@Id
+	@Column(name = "product_id")
+	public int getProductId() {
+		return productId;
 	}
+	@Column(name = "product_title")
 	public String getTitle() {
 		return title;
 	}
+	@Column(name = "product_description")
 	public String getDescription() {
 		return description;
 	}
-	public String getProductId() {
-		return productId;
-	}
-	public int getQuantityInStock() {
-		return quantityInStock;
-	}
-	public int getQuantityOnOrder() {
-		return quantityOnOrder;
-	}
-	public int getTotalSalesLifetime() {
-		return totalSalesLifetime;
-	}
+	@Column(name = "cost")
 	public double getCost() {
 		return cost;
 	}
+	@Column(name = "price")
 	public double getPrice() {
 		return price;
 	}
+	@Column(name = "total_sales")
+	public int getTotalSales() {
+		return totalSales;
+	}
+	@Column(name = "quantity_in_stock")
+	public int getQuantityInStock() {
+		return quantityInStock;
+	}
+	@Column(name = "quantity_on_order")
+	public int getQuantityOnOrder() {
+		return quantityOnOrder;
+	}
+	@Column(name = "image")
 	public byte[] getImage() {
 		return image;
 	}
-	public String getImageExtension() {
-		return imageExtension;
+	@Column(name = "image_ext")
+	public String getImageExt() {
+		return imageExt;
 	}
-	public void setRecordId(int recordId) {
-		this.recordId = recordId;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
 	public void setTitle(String title) {
 		this.title = title;
@@ -90,8 +97,14 @@ public class Product{
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public void setProductId(String productId) {
-		this.productId = productId;
+	public void setCost(double cost) {
+		this.cost = cost;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public void setTotalSales(int totalSales) {
+		this.totalSales = totalSales;
 	}
 	public void setQuantityInStock(int quantityInStock) {
 		this.quantityInStock = quantityInStock;
@@ -99,20 +112,12 @@ public class Product{
 	public void setQuantityOnOrder(int quantityOnOrder) {
 		this.quantityOnOrder = quantityOnOrder;
 	}
-	public void setTotalSalesLifetime(int totalSalesLifetime) {
-		this.totalSalesLifetime = totalSalesLifetime;
-	}
-	public void setCost(double cost) {
-		this.cost = cost;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
 	public void setImage(byte[] image) {
 		this.image = image;
 	}
-	public void setImageExtension(String imageExtension) {
-		this.imageExtension = imageExtension;
+	public void setImageExt(String imageExt) {
+		this.imageExt = imageExt;
 	}
 	
 }
+
