@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.portfolio.onlineStore.entity.User;
-import com.portfolio.onlineStore.service.UserServiceImpl;
+import com.portfolio.onlineStore.service.UserService;
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 	@Autowired
-	private UserServiceImpl service;
+	private UserService service;
 	
-	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping("/login")
 	public @ResponseBody User login(@ModelAttribute("loginUser") User user) throws SQLException {
 		boolean createCookieUponSuccess = user.isStayLoggedIn();
@@ -38,7 +38,6 @@ public class UserController {
 		return user;
 	}
 	@RequestMapping("/registerUser")
-	@CrossOrigin(origins="http://localhost:4200")
 	public String registerUser(@ModelAttribute("registerUser") User user) throws SQLException, ClassNotFoundException {
 		user = service.register(user);
 		System.out.println("success status : " + user.getNotes());

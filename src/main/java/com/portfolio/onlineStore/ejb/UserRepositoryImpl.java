@@ -1,4 +1,4 @@
-package com.portfolio.onlineStore.service;
+package com.portfolio.onlineStore.ejb;
 
 import java.sql.CallableStatement;
 import java.sql.ResultSet;

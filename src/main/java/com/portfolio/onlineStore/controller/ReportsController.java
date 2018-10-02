@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.portfolio.onlineStore.entity.ProductReport;
 import com.portfolio.onlineStore.entity.SalesReport;
-import com.portfolio.onlineStore.service.ReportsServiceImpl;
+import com.portfolio.onlineStore.service.ReportsService;
 @RestController
 public class ReportsController {
 	@Autowired
-	private ReportsServiceImpl service;
+	private ReportsService service;
 	
 	public List<SalesReport> getSalesReport(){
 		return null;
