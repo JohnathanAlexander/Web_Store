@@ -26,25 +26,25 @@ public class UserController {
 	
 	@RequestMapping("/login")
 	public @ResponseBody User login(@ModelAttribute("loginUser") User user) throws SQLException {
-		boolean createCookieUponSuccess = user.isStayLoggedIn();
+		/*boolean createCookieUponSuccess = user.isStayLoggedIn();
 		System.out.println("create cookie: " + user.isStayLoggedIn());
 		user = service.login(user);
-		if(user.isLoggedIn() && createCookieUponSuccess) {
+		/*if(user.isLoggedIn() && createCookieUponSuccess) {
 			String[] cookie = service.createCookie(user);
 			user.setCookieName(cookie[0]);
 			user.setCookieValue(cookie[1]);
-		}
+		}*/
 		
 		return user;
 	}
 	@RequestMapping("/registerUser")
 	public String registerUser(@ModelAttribute("registerUser") User user) throws SQLException, ClassNotFoundException {
 		user = service.register(user);
-		System.out.println("success status : " + user.getNotes());
+		//System.out.println("success status : " + user.getNotes());
 		//return user.getNotes();
-		if(user.isRegistered()) {
+		/*if(user.isRegistered()) {
 			return "success";
-		}
+		}*/
 		return "false";
 	}
 	@RequestMapping("/addElevatedUser")

@@ -22,14 +22,14 @@ public class UserService{
 	public String[] createCookie(User user) {
 		String username = user.getUsername();
 		String password = user.getPassword();
-		String userAuthLevel = user.getUserAuthLevel();
+		/*String userAuthLevel = user.getUserAuthLevel();
 		String firstName = user.getFirstName();
-		String lastName = user.getLastName();
+		String lastName = user.getLastName();*/
 		
 		StringBuilder sb = new StringBuilder();
 		sb.append(username).append("|").append(password).append("|");
-		sb.append(userAuthLevel).append("|").append(firstName);
-		sb.append("|").append(lastName);
+		/*sb.append(userAuthLevel).append("|").append(firstName);
+		sb.append("|").append(lastName);*/
 		
 		return new String[]{"stayLog", sb.toString()};
 	}

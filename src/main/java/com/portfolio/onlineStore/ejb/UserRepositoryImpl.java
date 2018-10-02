@@ -39,14 +39,14 @@ public class UserRepositoryImpl{
 		if(cStmt.getString("success").equals("true")) {
 			user.setUsername(username);
 			user.setPassword(password);
-			user.setUserAuthLevel(cStmt.getString("authLevel"));
+			/*user.setUserAuthLevel(cStmt.getString("authLevel"));
 			user.setEmail(cStmt.getString("email"));
 			user.setFirstName(cStmt.getString("firstName"));
 			user.setLastName(cStmt.getString("lastName"));
 			user.isLoggedIn(true);
-			user.isRegistered(true);
+			user.isRegistered(true);*/
 		}else {
-			user.setNotes("Invalid Username Or Password");
+			//user.setNotes("Invalid Username Or Password");
 		}
 		
 		//access the database via DatabaseConnection here.
@@ -62,9 +62,9 @@ public class UserRepositoryImpl{
 
 	    cStmt.setString(1, user.getUsername());
 	    cStmt.setString(2, user.getPassword());
-	    cStmt.setString(3, user.getEmail());
+	   /* cStmt.setString(3, user.getEmail());
 	    cStmt.setString(4, user.getFirstName());
-	    cStmt.setString(5, user.getLastName());
+	    cStmt.setString(5, user.getLastName());*/
 		System.out.println("In parameters have been set");
 	    cStmt.registerOutParameter(6, Types.VARCHAR);
 	    System.out.println("out parameter set");
@@ -76,11 +76,11 @@ public class UserRepositoryImpl{
 	   
 	    
 	    if(message.equals("success")) {
-	    	user.isRegistered(true);
-	    	user.setNotes("registerSuccess");
+	    	//user.isRegistered(true);
+	    	//user.setNotes("registerSuccess");
 	    	return user;
 	    }else {
-	    	user.setNotes(message);
+	    	//user.setNotes(message);
 	    }
 	    
 		return user;

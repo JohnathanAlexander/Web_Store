@@ -26,7 +26,7 @@ public class HomeController {
 	@RequestMapping("/register")
 	public String register(@ModelAttribute User user, Model model) {
 		//model.addAttribute("users", user);
-		System.out.println("Email: "+ user.getEmail());
+		//System.out.println("Email: "+ user.getEmail());
 		System.out.println("Hello, Worlds");
 		model.addAttribute("users", user);
 		return "about";
