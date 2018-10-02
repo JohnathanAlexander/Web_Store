@@ -1,5 +1,4 @@
-package com.alexandersEmporium.onlineStore.domain.Reports;
-import com.alexandersEmporium.onlineStore.domain.Product;
+package com.portfolio.onlineStore.entity;
 import java.util.ArrayList;
 import java.util.List;
 public class ProductReport extends Report{

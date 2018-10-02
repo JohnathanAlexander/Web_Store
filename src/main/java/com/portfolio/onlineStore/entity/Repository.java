@@ -1,4 +1,4 @@
-package com.alexandersEmporium.onlineStore.repository;
+package com.portfolio.onlineStore.entity;
 
 import java.sql.SQLException;
 

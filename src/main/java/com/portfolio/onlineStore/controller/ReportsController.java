@@ -1,14 +1,14 @@
-package com.alexandersEmporium.onlineStore.controller;
+package com.portfolio.onlineStore.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alexandersEmporium.onlineStore.domain.Reports.ElevatedUserReport;
-import com.alexandersEmporium.onlineStore.domain.Reports.ProductReport;
-import com.alexandersEmporium.onlineStore.domain.Reports.SalesReport;
-import com.alexandersEmporium.onlineStore.serviceImpl.ReportsServiceImpl;
+import com.portfolio.onlineStore.entity.ElevatedUserReport;
+import com.portfolio.onlineStore.entity.ProductReport;
+import com.portfolio.onlineStore.entity.SalesReport;
+import com.portfolio.onlineStore.service.ReportsServiceImpl;
 @RestController
 public class ReportsController {
 	@Autowired

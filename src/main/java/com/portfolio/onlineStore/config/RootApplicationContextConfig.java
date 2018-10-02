@@ -1,4 +1,4 @@
-package com.alexandersEmporium.onlineStore.config;
+package com.portfolio.onlineStore.config;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -7,13 +7,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-import com.alexandersEmporium.onlineStore.domain.Product;
-import com.alexandersEmporium.onlineStore.domain.Users.User;
-import com.alexandersEmporium.onlineStore.repositoryImpl.ProductRepositoryImpl;
-import com.alexandersEmporium.onlineStore.repositoryImpl.UserRepositoryImpl;
-import com.alexandersEmporium.onlineStore.serviceImpl.ProductServiceImpl;
-import com.alexandersEmporium.onlineStore.serviceImpl.UserServiceImpl;
-import com.alexandersEmporium.onlineStore.serviceImpl.ReportsServiceImpl;
+import com.portfolio.onlineStore.entity.User;
+import com.portfolio.onlineStore.entity.UserServiceImpl;
+import com.portfolio.onlineStore.entity.Product;
+import com.portfolio.onlineStore.entity.ProductRepositoryImpl;
+import com.portfolio.onlineStore.entity.UserRepositoryImpl;
+import com.portfolio.onlineStore.service.ProductServiceImpl;
+import com.portfolio.onlineStore.service.ReportsServiceImpl;
 @Configuration
 @ComponentScan("com.alexandersEmporium.onlineStore")
 public class RootApplicationContextConfig {

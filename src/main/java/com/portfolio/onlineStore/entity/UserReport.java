@@ -1,4 +1,4 @@
-package com.alexandersEmporium.onlineStore.domain.Reports;
+package com.portfolio.onlineStore.entity;
 
 public class UserReport extends Report{
 	private int numNewUsers;

@@ -1,4 +1,4 @@
-package com.alexandersEmporium.onlineStore.serviceImpl;
+package com.portfolio.onlineStore.service;
 
 public class ReportsServiceImpl {
 

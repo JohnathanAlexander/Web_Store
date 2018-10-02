@@ -1,4 +1,4 @@
-package com.alexandersEmporium.onlineStore.repositoryImpl;
+package com.portfolio.onlineStore.entity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -10,8 +10,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
 import java.util.List;
-import com.alexandersEmporium.onlineStore.domain.Product;
-import com.alexandersEmporium.onlineStore.repository.Repository;
 import java.util.ArrayList;
 
 public class ProductRepositoryImpl implements Repository{
