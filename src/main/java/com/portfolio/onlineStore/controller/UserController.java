@@ -17,8 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.portfolio.onlineStore.entity.User;
-import com.portfolio.onlineStore.entity.ElevatedUser;
-import com.portfolio.onlineStore.entity.UserServiceImpl;
+import com.portfolio.onlineStore.service.UserServiceImpl;
 @RestController
 public class UserController {
 	@Autowired

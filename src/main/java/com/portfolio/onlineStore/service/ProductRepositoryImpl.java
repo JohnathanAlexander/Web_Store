@@ -1,4 +1,4 @@
-package com.portfolio.onlineStore.entity;
+package com.portfolio.onlineStore.service;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -10,9 +10,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
 import java.util.List;
+
+import com.portfolio.onlineStore.entity.Product;
+
 import java.util.ArrayList;
 
-public class ProductRepositoryImpl implements Repository{
+public class ProductRepositoryImpl{
 	private Connection conn;
 	public ProductRepositoryImpl(Connection conn) {
 		this.conn = conn;
@@ -147,24 +150,15 @@ public class ProductRepositoryImpl implements Repository{
 		
 		return success;
 	}
+	//TODO
 	public String deleteProduct(String productId, String username, String password) throws SQLException{
 		//does not actually remove product.  It'll just change isActive to false
 		//only an admin can change it back
-		boolean isAuthenticated = authenticate(new String[] {"admin", "manager"}, username, password);
-		if(isAuthenticated) {
-			//'delete' product
-			return "TRUE";
-		}else {
-			return "FALSE";
-		}
+		return "";
+		//change return type to boolean?
 
 	}
-	@Override
-	//Parameter levelAuthTo[]: level(s) user must be authenticated to
-	public boolean authenticate(String[] levelAuthTo, String username, String password) throws SQLException{
-		
-		return false;
-	}
+	
 	
 	
 	
