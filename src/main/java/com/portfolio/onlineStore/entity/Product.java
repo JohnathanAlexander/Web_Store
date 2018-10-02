@@ -1,10 +1,9 @@
 package com.portfolio.onlineStore.entity;
 
-import java.io.Serializable;
+import javax.persistence.Entity;
 
-@SuppressWarnings("serial")
-
-public class Product implements Serializable{
+@Entity
+public class Product{
 
 
 	private int recordId;
@@ -49,70 +48,71 @@ public class Product implements Serializable{
 		this.quantityInStock = qInStock;
 		this.image = image;
 	}
-	public void setTitle(String title) {
-		this.title = title;
+	public int getRecordId() {
+		return recordId;
 	}
 	public String getTitle() {
-		return this.title;
+		return title;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public String getProductId() {
+		return productId;
+	}
+	public int getQuantityInStock() {
+		return quantityInStock;
+	}
+	public int getQuantityOnOrder() {
+		return quantityOnOrder;
+	}
+	public int getTotalSalesLifetime() {
+		return totalSalesLifetime;
+	}
+	public double getCost() {
+		return cost;
+	}
+	public double getPrice() {
+		return price;
+	}
+	public byte[] getImage() {
+		return image;
+	}
+	public String getImageExtension() {
+		return imageExtension;
 	}
 	public void setRecordId(int recordId) {
 		this.recordId = recordId;
 	}
-	public int getRecordId() {
-		return this.recordId;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getDescription() {
-		return this.description;
-	}
 	public void setProductId(String productId) {
 		this.productId = productId;
-	}
-	public String getProductId() {
-		return this.productId;
 	}
 	public void setQuantityInStock(int quantityInStock) {
 		this.quantityInStock = quantityInStock;
 	}
-	public int getQuantityInStock() {
-		return this.quantityInStock;
-	}
 	public void setQuantityOnOrder(int quantityOnOrder) {
 		this.quantityOnOrder = quantityOnOrder;
-	}
-	public int getQuantityOnOrder() {
-		return this.quantityOnOrder;
-	}
-	public void setPrice(double price) {
-		this.price = price;
-	}
-	public double getPrice() {
-		return this.price;
 	}
 	public void setTotalSalesLifetime(int totalSalesLifetime) {
 		this.totalSalesLifetime = totalSalesLifetime;
 	}
-	public int getTotalSalesLifetime() {
-		return this.totalSalesLifetime;
-	}
 	public void setCost(double cost) {
 		this.cost = cost;
 	}
-	public double getCost() {
-		return this.cost;
+	public void setPrice(double price) {
+		this.price = price;
 	}
 	public void setImage(byte[] image) {
 		this.image = image;
 	}
-	public byte[] getImage() {
-		return this.image;
+	public void setImageExtension(String imageExtension) {
+		this.imageExtension = imageExtension;
 	}
-	public void setImageExtension(String ext) {
-		this.imageExtension = ext;
-	}
-	public String getImageExtension() {
-		return this.imageExtension;
-	}
+	
 }

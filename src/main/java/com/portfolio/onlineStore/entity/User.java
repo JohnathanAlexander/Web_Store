@@ -1,12 +1,10 @@
 package com.portfolio.onlineStore.entity;
 
-import java.io.Serializable;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-
-@SuppressWarnings("serial")
-
-public class User implements Serializable{
+@Entity
+public class User{
 
 	private int recordId;
 
@@ -31,8 +29,57 @@ public class User implements Serializable{
 		this.username = username;
 		this.password = password;
 	}
+
+	
+	@Id
 	public int getRecordId() {
-		return this.recordId;
+		return recordId;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public String getUserAuthLevel() {
+		return userAuthLevel;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public boolean isLoggedIn() {
+		return isLoggedIn;
+	}
+	public boolean isRegistered() {
+		return isRegistered;
+	}
+	public boolean isStayLoggedIn() {
+		return stayLoggedIn;
+	}
+	
+	public void isLoggedIn(boolean isLoggedIn) {
+		this.isLoggedIn = isLoggedIn;
+	}
+	public void isRegistered(boolean isRegistered) {
+		this.isRegistered = isRegistered;
+	}
+	public void isStayLoggedIn(boolean stayLoggedIn) {
+		this.stayLoggedIn = stayLoggedIn;
+	}
+	public String getCookieName() {
+		return cookieName;
+	}
+	public String getCookieValue() {
+		return cookieValue;
+	}
+	public String getNotes() {
+		return notes;
 	}
 	public void setRecordId(int recordId) {
 		this.recordId = recordId;
@@ -40,17 +87,11 @@ public class User implements Serializable{
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public void setUserAuthLevel(String authLevel) {
-		this.userAuthLevel = authLevel;
-	}
-	public String getUserAuthLevel() {
-		return this.userAuthLevel;
-	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public void setIsLoggedIn(boolean isLoggedIn) {
-		this.isLoggedIn = isLoggedIn;
+	public void setUserAuthLevel(String userAuthLevel) {
+		this.userAuthLevel = userAuthLevel;
 	}
 	public void setEmail(String email) {
 		this.email = email;
@@ -61,54 +102,23 @@ public class User implements Serializable{
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-	public void setIsRegistered(boolean bool) {
-		this.isRegistered = bool;
+	public void setLoggedIn(boolean isLoggedIn) {
+		this.isLoggedIn = isLoggedIn;
 	}
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
-	public String getNotes() {
-		return this.notes;
-	}
-	public boolean getIsRegistered() {
-		return this.isRegistered;
-	}
-	public String getUsername() {
-		return this.username;
-	}
-	public String getPassword() {
-		return this.password;
-	}
-	public boolean getIsLoggedIn() {
-		return this.isLoggedIn;
-	}
-	public String getEmail() {
-		return this.email;
-	}
-	public String getFirstName() {
-		return this.firstName;
-	}
-	public String getLastName() {
-		return this.lastName;
-	}
-	public boolean getStayLoggedIn() {
-		return this.stayLoggedIn;
+	public void setRegistered(boolean isRegistered) {
+		this.isRegistered = isRegistered;
 	}
 	public void setStayLoggedIn(boolean stayLoggedIn) {
 		this.stayLoggedIn = stayLoggedIn;
 	}
-	public String getCookieName() {
-		return this.cookieName;
-	}
 	public void setCookieName(String cookieName) {
 		this.cookieName = cookieName;
-	}
-	public String getCookieValue() {
-		return this.cookieValue;
 	}
 	public void setCookieValue(String cookieValue) {
 		this.cookieValue = cookieValue;
 	}
-	public List<String> getAllActions(){return null;}
-	public void addAction(String action) {}
+	public void setNotes(String notes) {
+		this.notes = notes;
+	}
+	
 }
