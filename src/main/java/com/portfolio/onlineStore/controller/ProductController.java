@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.portfolio.onlineStore.entity.Product;
-import com.portfolio.onlineStore.service.ProductServiceImpl;
+import com.portfolio.onlineStore.service.ProductService;
 
 import java.io.IOException;
 import java.lang.annotation.Repeatable;
@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ProductController {
 	@Autowired
-	ProductServiceImpl service;
+	ProductService service;
 	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping("/getAllProducts")

@@ -8,12 +8,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import com.portfolio.onlineStore.entity.User;
+import com.portfolio.onlineStore.ejb.ProductRepositoryImpl;
+import com.portfolio.onlineStore.ejb.UserRepositoryImpl;
 import com.portfolio.onlineStore.entity.Product;
-import com.portfolio.onlineStore.service.ProductRepositoryImpl;
-import com.portfolio.onlineStore.service.ProductServiceImpl;
-import com.portfolio.onlineStore.service.ReportsServiceImpl;
-import com.portfolio.onlineStore.service.UserRepositoryImpl;
-import com.portfolio.onlineStore.service.UserServiceImpl;
+import com.portfolio.onlineStore.service.ProductService;
+import com.portfolio.onlineStore.service.ReportsService;
+import com.portfolio.onlineStore.service.UserService;
 @Configuration
 @ComponentScan("com.alexandersEmporium.onlineStore")
 public class RootApplicationContextConfig {
@@ -27,8 +27,8 @@ public class RootApplicationContextConfig {
 		return new Product();
 	}
 	@Bean
-	public ProductServiceImpl getProductService() {
-		return new ProductServiceImpl();
+	public ProductService getProductService() {
+		return new ProductService();
 	}
 	@Bean
 	public UserRepositoryImpl getUserRepositoryImpl() throws SQLException, ClassNotFoundException {
@@ -41,11 +41,11 @@ public class RootApplicationContextConfig {
 		return new ProductRepositoryImpl(DriverManager.getConnection("jdbc:mysql://localhost:3306/products", "student", "student"));
 	}
 	@Bean
-	public UserServiceImpl getUserServiceImpl() {
-		return new UserServiceImpl();
+	public UserService getUserServiceImpl() {
+		return new UserService();
 	}
 	@Bean
-	public ReportsServiceImpl getReportsServiceImpl() {
-		return new ReportsServiceImpl();
+	public ReportsService getReportsServiceImpl() {
+		return new ReportsService();
 	}
 }
