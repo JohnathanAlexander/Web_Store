@@ -26,10 +26,10 @@ public class UserController {
 	@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping("/login")
 	public @ResponseBody User login(@ModelAttribute("loginUser") User user) throws SQLException {
-		boolean createCookieUponSuccess = user.getStayLoggedIn();
-		System.out.println("create cookie: " + user.getStayLoggedIn());
+		boolean createCookieUponSuccess = user.isStayLoggedIn();
+		System.out.println("create cookie: " + user.isStayLoggedIn());
 		user = service.login(user);
-		if(user.getIsLoggedIn() && createCookieUponSuccess) {
+		if(user.isLoggedIn() && createCookieUponSuccess) {
 			String[] cookie = service.createCookie(user);
 			user.setCookieName(cookie[0]);
 			user.setCookieValue(cookie[1]);
@@ -43,7 +43,7 @@ public class UserController {
 		user = service.register(user);
 		System.out.println("success status : " + user.getNotes());
 		//return user.getNotes();
-		if(user.getIsRegistered()) {
+		if(user.isRegistered()) {
 			return "success";
 		}
 		return "false";

@@ -43,8 +43,8 @@ public class UserRepositoryImpl{
 			user.setEmail(cStmt.getString("email"));
 			user.setFirstName(cStmt.getString("firstName"));
 			user.setLastName(cStmt.getString("lastName"));
-			user.setIsLoggedIn(true);
-			user.setIsRegistered(true);
+			user.isLoggedIn(true);
+			user.isRegistered(true);
 		}else {
 			user.setNotes("Invalid Username Or Password");
 		}
@@ -76,7 +76,7 @@ public class UserRepositoryImpl{
 	   
 	    
 	    if(message.equals("success")) {
-	    	user.setIsRegistered(true);
+	    	user.isRegistered(true);
 	    	user.setNotes("registerSuccess");
 	    	return user;
 	    }else {
