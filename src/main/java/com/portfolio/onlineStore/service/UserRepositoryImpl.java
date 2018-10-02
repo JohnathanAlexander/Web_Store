@@ -1,4 +1,4 @@
-package com.portfolio.onlineStore.entity;
+package com.portfolio.onlineStore.service;
 
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
@@ -9,7 +9,7 @@ import com.portfolio.onlineStore.entity.User;
 
 import java.sql.Connection;
 
-public class UserRepositoryImpl implements Repository{
+public class UserRepositoryImpl{
 	Connection conn;
 	public UserRepositoryImpl(Connection conn) throws ClassNotFoundException {
 		this.conn = conn;
@@ -88,10 +88,6 @@ public class UserRepositoryImpl implements Repository{
 	public String addElevatedUser(User user) {
 		return null;
 	}
-	@Override
-	public boolean authenticate(String[] levelAuthTo, String username, String password) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
 	
 }

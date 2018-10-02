@@ -1,6 +1,5 @@
-package com.portfolio.onlineStore.entity;
+package com.portfolio.onlineStore.service;
 import com.portfolio.onlineStore.entity.User;
-import com.portfolio.onlineStore.service.UserService;
 
 import java.sql.SQLException;
 

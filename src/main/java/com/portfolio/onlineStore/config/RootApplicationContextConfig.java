@@ -8,12 +8,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 import com.portfolio.onlineStore.entity.User;
-import com.portfolio.onlineStore.entity.UserServiceImpl;
 import com.portfolio.onlineStore.entity.Product;
-import com.portfolio.onlineStore.entity.ProductRepositoryImpl;
-import com.portfolio.onlineStore.entity.UserRepositoryImpl;
+import com.portfolio.onlineStore.service.ProductRepositoryImpl;
 import com.portfolio.onlineStore.service.ProductServiceImpl;
 import com.portfolio.onlineStore.service.ReportsServiceImpl;
+import com.portfolio.onlineStore.service.UserRepositoryImpl;
+import com.portfolio.onlineStore.service.UserServiceImpl;
 @Configuration
 @ComponentScan("com.alexandersEmporium.onlineStore")
 public class RootApplicationContextConfig {

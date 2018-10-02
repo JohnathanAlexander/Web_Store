@@ -9,7 +9,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.portfolio.onlineStore.entity.Product;
-import com.portfolio.onlineStore.entity.ProductRepositoryImpl;
 public class ProductServiceImpl implements ProductService{
 	@Autowired
 	ProductRepositoryImpl repository;
