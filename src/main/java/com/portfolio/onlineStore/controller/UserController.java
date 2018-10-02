@@ -1,4 +1,4 @@
-package com.alexandersEmporium.onlineStore.controller;
+package com.portfolio.onlineStore.controller;
 import java.sql.SQLException;
 import javax.servlet.http.Cookie;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alexandersEmporium.onlineStore.domain.Users.ElevatedUser;
-import com.alexandersEmporium.onlineStore.domain.Users.User;
-import com.alexandersEmporium.onlineStore.serviceImpl.UserServiceImpl;
+import com.portfolio.onlineStore.entity.User;
+import com.portfolio.onlineStore.entity.ElevatedUser;
+import com.portfolio.onlineStore.entity.UserServiceImpl;
 @RestController
 public class UserController {
 	@Autowired

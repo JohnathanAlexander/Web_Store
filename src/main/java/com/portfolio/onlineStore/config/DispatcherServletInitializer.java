@@ -1,4 +1,4 @@
-package com.alexandersEmporium.onlineStore.config;
+package com.portfolio.onlineStore.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 

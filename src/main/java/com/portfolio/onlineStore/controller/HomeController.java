@@ -1,4 +1,4 @@
-package com.alexandersEmporium.onlineStore.controller;
+package com.portfolio.onlineStore.controller;
 
 
 import java.awt.Image;
@@ -13,8 +13,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.alexandersEmporium.onlineStore.domain.Product;
-import com.alexandersEmporium.onlineStore.domain.Users.User;
+
+import com.portfolio.onlineStore.entity.User;
+import com.portfolio.onlineStore.entity.Product;
 @Controller
 public class HomeController {
 	@RequestMapping("/")

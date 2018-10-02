@@ -1,4 +1,4 @@
-package com.alexandersEmporium.onlineStore.service;
+package com.portfolio.onlineStore.service;
 
 public interface ProductService {
 	

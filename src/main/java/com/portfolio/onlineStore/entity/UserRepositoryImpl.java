@@ -1,12 +1,12 @@
-package com.alexandersEmporium.onlineStore.repositoryImpl;
+package com.portfolio.onlineStore.entity;
 
 import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
 
-import com.alexandersEmporium.onlineStore.domain.Users.User;
-import com.alexandersEmporium.onlineStore.repository.Repository;
+import com.portfolio.onlineStore.entity.User;
+
 import java.sql.Connection;
 
 public class UserRepositoryImpl implements Repository{

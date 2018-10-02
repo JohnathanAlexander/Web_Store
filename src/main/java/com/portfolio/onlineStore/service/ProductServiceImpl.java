@@ -1,4 +1,4 @@
-package com.alexandersEmporium.onlineStore.serviceImpl;
+package com.portfolio.onlineStore.service;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -8,9 +8,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.alexandersEmporium.onlineStore.domain.Product;
-import com.alexandersEmporium.onlineStore.repositoryImpl.ProductRepositoryImpl;
-import com.alexandersEmporium.onlineStore.service.ProductService;
+import com.portfolio.onlineStore.entity.Product;
+import com.portfolio.onlineStore.entity.ProductRepositoryImpl;
 public class ProductServiceImpl implements ProductService{
 	@Autowired
 	ProductRepositoryImpl repository;

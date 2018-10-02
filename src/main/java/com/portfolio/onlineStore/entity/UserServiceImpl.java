@@ -1,14 +1,13 @@
-package com.alexandersEmporium.onlineStore.serviceImpl;
-import com.alexandersEmporium.onlineStore.service.UserService;
-import com.alexandersEmporium.onlineStore.domain.Users.User;
-import com.alexandersEmporium.onlineStore.repositoryImpl.UserRepositoryImpl;
+package com.portfolio.onlineStore.entity;
+import com.portfolio.onlineStore.entity.User;
+import com.portfolio.onlineStore.service.UserService;
 
 import java.sql.SQLException;
 
 import javax.servlet.http.Cookie;
 
 import org.springframework.beans.factory.annotation.Autowired;
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl{
 	@Autowired
 	private UserRepositoryImpl repository;
 	
