@@ -1,4 +1,4 @@
-package com.alexandersEmporium.onlineStore.domain;
+package com.portfolio.onlineStore.entity;
 
 import java.io.Serializable;
 import java.util.List;

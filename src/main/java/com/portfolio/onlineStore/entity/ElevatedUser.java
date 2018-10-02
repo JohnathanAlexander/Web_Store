@@ -1,7 +1,9 @@
-package com.alexandersEmporium.onlineStore.domain.Users;
+package com.portfolio.onlineStore.entity;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.portfolio.onlineStore.entity.User;
 
 @SuppressWarnings("serial")
 public class ElevatedUser extends User{
