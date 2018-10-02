@@ -1,15 +1,19 @@
 package com.portfolio.onlineStore.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "WEBSTORE.USER")
 public class User{
 
-	private int recordId;
-
+	private int userId;
 	private String username;
 	private String password;
+	private String role;
+	/*
 	private String userAuthLevel = "user";
 	private String email;
 
@@ -22,67 +26,27 @@ public class User{
 	
 	private String cookieName;
 	private String cookieValue;
-	private String notes;
-	
-	public User() {}
-	public User(String username, String password) {
-		this.username = username;
-		this.password = password;
-	}
-
+	private String notes;*/
 	
 	@Id
-	public int getRecordId() {
-		return recordId;
+	@Column(name = "user_id")
+	public int getUserId() {
+		return userId;
 	}
+	@Column(name = "username")
 	public String getUsername() {
 		return username;
 	}
+	@Column(name = "password")
 	public String getPassword() {
 		return password;
 	}
-	public String getUserAuthLevel() {
-		return userAuthLevel;
+	@Column(name = "role")//TODO: needs to join with role table to get string
+	public String getRole() {
+		return role;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public String getFirstName() {
-		return firstName;
-	}
-	public String getLastName() {
-		return lastName;
-	}
-	public boolean isLoggedIn() {
-		return isLoggedIn;
-	}
-	public boolean isRegistered() {
-		return isRegistered;
-	}
-	public boolean isStayLoggedIn() {
-		return stayLoggedIn;
-	}
-	
-	public void isLoggedIn(boolean isLoggedIn) {
-		this.isLoggedIn = isLoggedIn;
-	}
-	public void isRegistered(boolean isRegistered) {
-		this.isRegistered = isRegistered;
-	}
-	public void isStayLoggedIn(boolean stayLoggedIn) {
-		this.stayLoggedIn = stayLoggedIn;
-	}
-	public String getCookieName() {
-		return cookieName;
-	}
-	public String getCookieValue() {
-		return cookieValue;
-	}
-	public String getNotes() {
-		return notes;
-	}
-	public void setRecordId(int recordId) {
-		this.recordId = recordId;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	public void setUsername(String username) {
 		this.username = username;
@@ -90,35 +54,9 @@ public class User{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public void setUserAuthLevel(String userAuthLevel) {
-		this.userAuthLevel = userAuthLevel;
+	public void setRole(String role) {
+		this.role = role;
 	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-	public void setLoggedIn(boolean isLoggedIn) {
-		this.isLoggedIn = isLoggedIn;
-	}
-	public void setRegistered(boolean isRegistered) {
-		this.isRegistered = isRegistered;
-	}
-	public void setStayLoggedIn(boolean stayLoggedIn) {
-		this.stayLoggedIn = stayLoggedIn;
-	}
-	public void setCookieName(String cookieName) {
-		this.cookieName = cookieName;
-	}
-	public void setCookieValue(String cookieValue) {
-		this.cookieValue = cookieValue;
-	}
-	public void setNotes(String notes) {
-		this.notes = notes;
-	}
+	
 	
 }
