@@ -19,10 +19,16 @@ public class ProductSessionBean {
 	public Product find() {
 		return null;
 	}
+	public Product create() {
+		return null;
+	}
 	public void delete(Product product) {
 		
 	}
 	public List<Product> findAll(){
 		return null;
+	}
+	public Long retrieveProductCount() {
+		return 0L;
 	}
 }
