@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.portfolio.onlineStore.enums.Role;
+
 @Entity
 @Table(name = "WEBSTORE.USER")
 public class User{
@@ -12,7 +14,8 @@ public class User{
 	private int userId;
 	private String username;
 	private String password;
-	private String role;
+	private String dbRole;
+	private Role role;
 	/*
 	private String userAuthLevel = "user";
 	private String email;
@@ -42,7 +45,10 @@ public class User{
 		return password;
 	}
 	@Column(name = "role")//TODO: needs to join with role table to get string
-	public String getRole() {
+	public String getDbRole() {
+		return dbRole;
+	}
+	public Role getRole() {
 		return role;
 	}
 	public void setUserId(int userId) {
@@ -54,8 +60,11 @@ public class User{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public void setRole(String role) {
+	public void setRole(Role role) {
 		this.role = role;
+	}
+	public void setDbRole(String role) {
+		dbRole = role;
 	}
 	
 	

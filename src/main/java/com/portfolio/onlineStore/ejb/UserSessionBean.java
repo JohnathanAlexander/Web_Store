@@ -10,6 +10,7 @@ import javax.persistence.PersistenceContext;
 
 
 import com.portfolio.onlineStore.entity.User;
+import com.portfolio.onlineStore.enums.Role;
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRED)
@@ -19,8 +20,10 @@ public class UserSessionBean {
 	@PersistenceContext
 	EntityManager em;
 	
+	//login method
 	public User find(String username, String password) {
-		return null;
+		User user = em.find(User.class, username);
+		return roleSetter(user);
 	}
 	public void delete(User user) {
 		try {
@@ -32,14 +35,44 @@ public class UserSessionBean {
 			
 		}
 	}
+	public User roleSetter(User user) {
+		Role role = Role.USER; //default role to prevent higher privileges.
+		switch(user.getDbRole()) {
+			case "user":
+				role = Role.USER;
+				break;
+			case "employee":
+				role = Role.EMPLOYEE;
+				break;
+			case "manager":
+				role = Role.MANAGER;
+				break;
+			case "administrator":
+				role = Role.ADMINISTRATOR;
+				break;
+			default:
+				role = Role.USER;
+				break;
+		}
+		user.setRole(role);
+		
+		return user;
+	}
 	public Long retrieveUserCount() {
 		return 0L;
 	}
 	public User create() {
 		return null;
 	}
-	//TODO
+	
 	private void permanentlyDelete(User user) {
-		
+		try {
+			User permDeletePending = em.find(User.class, user.getUsername());
+			
+			em.remove(permDeletePending);
+			em.flush();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

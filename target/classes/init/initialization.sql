@@ -50,3 +50,8 @@ CREATE TABLE `webstore`.`user_information` (
     REFERENCES `webstore`.`user` (`user_id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+    
+ALTER TABLE `webstore`.`user` 
+DROP PRIMARY KEY,
+ADD PRIMARY KEY (`username`);
+
