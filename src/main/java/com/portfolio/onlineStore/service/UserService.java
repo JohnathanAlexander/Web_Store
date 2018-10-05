@@ -1,18 +1,19 @@
 package com.portfolio.onlineStore.service;
 import com.portfolio.onlineStore.ejb.UserRepositoryImpl;
+import com.portfolio.onlineStore.ejb.UserSessionBean;
 import com.portfolio.onlineStore.entity.User;
 
 import java.sql.SQLException;
 
+import javax.ejb.EJB;
+
 import org.springframework.beans.factory.annotation.Autowired;
 public class UserService{
-	@Autowired
-	private UserRepositoryImpl repository;
+	@EJB
+	private UserSessionBean ejb;
 	
 	public User login(User user) throws SQLException {
-		user = repository.loginProc(user);
-		
-		return user;
+		return ejb.find(user.getUsername(), user.getPassword());
 	}
 	public User register(User user) throws SQLException, ClassNotFoundException{
 		System.out.println("leaving service");

@@ -35,6 +35,8 @@ public class UserController {
 			user.setCookieValue(cookie[1]);
 		}*/
 		
+		
+		
 		return user;
 	}
 	@RequestMapping("/registerUser")
