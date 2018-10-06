@@ -36,11 +36,8 @@ public class UserSessionBean {
 		}
 	}
 	public User roleSetter(User user) {
-		Role role = Role.USER; //default role to prevent higher privileges.
+		Role role;
 		switch(user.getDbRole()) {
-			case "user":
-				role = Role.USER;
-				break;
 			case "employee":
 				role = Role.EMPLOYEE;
 				break;
@@ -61,7 +58,7 @@ public class UserSessionBean {
 	public Long retrieveUserCount() {
 		return 0L;
 	}
-	public User create() {
+	public User create(String username, String password, String firstName, String lastName, String email) {
 		return null;
 	}
 	

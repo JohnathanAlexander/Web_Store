@@ -1,22 +1,17 @@
 package com.portfolio.onlineStore.controller;
 import java.sql.SQLException;
-import javax.servlet.http.Cookie;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.portfolio.onlineStore.entity.User;
+import com.portfolio.onlineStore.entity.UserInformation;
 import com.portfolio.onlineStore.service.UserService;
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -40,8 +35,8 @@ public class UserController {
 		return user;
 	}
 	@RequestMapping("/registerUser")
-	public String registerUser(@ModelAttribute("registerUser") User user) throws SQLException, ClassNotFoundException {
-		user = service.register(user);
+	public String registerUser(@ModelAttribute("registerUser") User user, @ModelAttribute("registerUserInformation") UserInformation info) throws SQLException, ClassNotFoundException {
+		user = service.register(user, info);
 		//System.out.println("success status : " + user.getNotes());
 		//return user.getNotes();
 		/*if(user.isRegistered()) {
@@ -49,25 +44,14 @@ public class UserController {
 		}*/
 		return "false";
 	}
-	@RequestMapping("/addElevatedUser")
-	public String addNewElevatedUser(User user) {
-		service.addElevatedUser(user);
+	@RequestMapping("/findUser")
+	public List<Object> findUser(User user, UserInformation info){
+		List<Object> ret = new ArrayList<>();
+		
 		return null;
 	}
-	@RequestMapping("/getManager")
-	public @ResponseBody User getManager(User user) throws SQLException{
-		return null;
-	}
-	@RequestMapping("/getAdmin")
-	public @ResponseBody User getAdmin(User user) throws SQLException{
-		return null;
-	}
-	@RequestMapping("/alterManager")
-	public String alterManager(User user) throws SQLException{
-		return null;
-	}
-	@RequestMapping("/alterAdmin")
-	public String alterAdmin(User user) throws SQLException{
+	@RequestMapping("/alter")
+	public String alter(User user, UserInformation info, User modifier) {
 		return null;
 	}
 	@RequestMapping("/closeAccount")
