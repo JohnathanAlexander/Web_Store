@@ -1,23 +1,20 @@
 package com.portfolio.onlineStore.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.portfolio.onlineStore.entity.User;
+import org.springframework.web.servlet.view.RedirectView;
+
+import com.portfolio.onlineStore.common.Navigation;
 @Controller
-public class HomeController {
+public class HomeController{
 	@RequestMapping("/")
-	public String home(Model model){
+	public RedirectView home(Model model){
 		System.out.println("words");
-		return "http://localhost:4200";
-	}
-	@RequestMapping("/register")
-	public String register(@ModelAttribute User user, Model model) {
-		//model.addAttribute("users", user);
-		//System.out.println("Email: "+ user.getEmail());
-		System.out.println("Hello, Worlds");
-		model.addAttribute("users", user);
-		return "about";
+		RedirectView redirect = new RedirectView();
+
+		redirect.setUrl(Navigation.HOME);
+		
+		return redirect;
 	}
 }
 
