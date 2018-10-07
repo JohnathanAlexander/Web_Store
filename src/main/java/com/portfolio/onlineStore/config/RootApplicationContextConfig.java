@@ -15,7 +15,7 @@ import com.portfolio.onlineStore.service.ProductService;
 import com.portfolio.onlineStore.service.ReportsService;
 import com.portfolio.onlineStore.service.UserService;
 @Configuration
-@ComponentScan("com.alexandersEmporium.onlineStore")
+@ComponentScan("com.portfolio.onlineStore")
 public class RootApplicationContextConfig {
 	
 	@Bean

@@ -11,6 +11,7 @@ import javax.persistence.PersistenceContext;
 
 import com.portfolio.onlineStore.entity.User;
 import com.portfolio.onlineStore.enums.Role;
+import com.portfolio.onlineStore.entity.UserInformation;
 
 @Stateless
 @TransactionAttribute(TransactionAttributeType.REQUIRED)
@@ -29,11 +30,20 @@ public class UserSessionBean {
 		try {
 			User pendingDelete = em.find(User.class, user.getUserId());
 			
-			em.remove(pendingDelete);
-			em.flush();
+			update(user);
+			
 		}catch(Exception e) {
 			
 		}
+	}
+	public void update(User user) {
+		em.merge(user);
+		em.flush();
+	}
+	public void update(User user, UserInformation info) {
+		em.merge(user);
+		em.merge(info);
+		em.flush();
 	}
 	public User roleSetter(User user) {
 		Role role;
@@ -55,9 +65,11 @@ public class UserSessionBean {
 		
 		return user;
 	}
+	//TODO
 	public Long retrieveUserCount() {
 		return 0L;
 	}
+	//TODO
 	public User create(String username, String password, String firstName, String lastName, String email) {
 		return null;
 	}

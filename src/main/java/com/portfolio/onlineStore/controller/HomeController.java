@@ -9,7 +9,7 @@ public class HomeController {
 	@RequestMapping("/")
 	public String home(Model model){
 		System.out.println("words");
-		return "home";
+		return "http://localhost:4200";
 	}
 	@RequestMapping("/register")
 	public String register(@ModelAttribute User user, Model model) {

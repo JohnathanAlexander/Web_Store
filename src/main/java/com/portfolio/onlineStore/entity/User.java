@@ -16,6 +16,8 @@ public class User{
 	private String password;
 	private String dbRole;
 	private Role role;
+	
+	private boolean isActive;
 	/*
 	private String userAuthLevel = "user";
 	private String email;
@@ -66,6 +68,11 @@ public class User{
 	public void setDbRole(String role) {
 		dbRole = role;
 	}
-	
+	public boolean isActive() {
+		return isActive;
+	}
+	public void isActive(boolean active) {
+		isActive = active;
+	}
 	
 }

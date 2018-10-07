@@ -10,7 +10,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.alexandersEmporium.onlineStore")
+@ComponentScan("com.portfolio.onlineStore")
 public class WebApplicationContextConfig extends WebMvcConfigurerAdapter{
 	@Override
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
