@@ -12,13 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.portfolio.onlineStore.entity.User;
 import com.portfolio.onlineStore.entity.UserInformation;
+import com.portfolio.onlineStore.enums.Status;
 import com.portfolio.onlineStore.service.UserService;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 	@Autowired
 	private UserService service;
 	
+	//TODO
 	@RequestMapping("/login")
 	public @ResponseBody User login(@ModelAttribute("loginUser") User user) throws SQLException {
 		/*boolean createCookieUponSuccess = user.isStayLoggedIn();
@@ -29,11 +32,10 @@ public class UserController {
 			user.setCookieName(cookie[0]);
 			user.setCookieValue(cookie[1]);
 		}*/
-		
-		
-		
+		System.out.println("hello");
 		return user;
 	}
+	//TODO
 	@RequestMapping("/registerUser")
 	public String registerUser(@ModelAttribute("registerUser") User user, @ModelAttribute("registerUserInformation") UserInformation info) throws SQLException, ClassNotFoundException {
 		user = service.register(user, info);
@@ -44,18 +46,29 @@ public class UserController {
 		}*/
 		return "false";
 	}
+	//TODO
 	@RequestMapping("/findUser")
 	public List<Object> findUser(User user, UserInformation info){
 		List<Object> ret = new ArrayList<>();
 		
 		return null;
 	}
+	//TODO
 	@RequestMapping("/alter")
 	public String alter(User user, UserInformation info, User modifier) {
 		return null;
 	}
+	//TODO
 	@RequestMapping("/closeAccount")
-	public String closeAccount(User user) throws SQLException{
-		return null;
+	public boolean closeAccount(User user) throws SQLException{
+		return service.close(user) == Status.CLOSED;
 	}
+
+	@RequestMapping("/logout")
+	public boolean logout(User user) {
+		return service.logout(user) == Status.LOG_OUT_SUCCESSFUL;
+	}
+	
+	
+	
 }

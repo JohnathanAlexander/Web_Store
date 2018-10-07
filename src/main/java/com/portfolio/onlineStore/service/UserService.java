@@ -1,8 +1,8 @@
 package com.portfolio.onlineStore.service;
-import com.portfolio.onlineStore.ejb.UserRepositoryImpl;
 import com.portfolio.onlineStore.ejb.UserSessionBean;
 import com.portfolio.onlineStore.entity.User;
 import com.portfolio.onlineStore.entity.UserInformation;
+import com.portfolio.onlineStore.enums.Role;
 import com.portfolio.onlineStore.enums.Status;
 
 import java.util.List;
@@ -15,17 +15,39 @@ public class UserService extends Service{
 	@EJB
 	private UserSessionBean ejb;
 	
-	public User login(User user) throws SQLException {
-		User currUser = ejb.find(user.getUsername(), user.getPassword());
-
+	public User login(User user){
+		//User currUser = ejb.find(user.getUsername(), user.getPassword());
+		User currUser = null;
+		
+			currUser = new User();
+			currUser.setUsername(user.getUsername());
+			currUser.setPassword(user.getPassword());
+			currUser.setRole(Role.EMPLOYEE);
+			currUser.setUserId(4696566);
+		
 		storage.setCurrentUser(currUser);
 		
 		return currUser;
 	}
 	
+	public Status close(User user) {
+		Status closeStatus = Status.CLOSED;
+		try {
+			user.isActive(false);
+			
+			ejb.delete(user);
+		}catch(Exception e) {
+			e.printStackTrace();
+			closeStatus = Status.ERROR;
+		}
+		return closeStatus;
+		
+	}
+	
 	//Temporary logout method
 	public Status logout(User user) {
 		storage.setCurrentUser(null);
+		//Later:  ejb.logout(user.getUsername()); //TODO: Implement login status table in db with timestamps  insert records
 		return Status.LOG_OUT_SUCCESSFUL;
 	}
 	public User register(User user, UserInformation info) throws SQLException, ClassNotFoundException{
@@ -34,6 +56,8 @@ public class UserService extends Service{
 							info.getEmail());
 		
 	}
+	
+	//TODO
 	@Override
 	public Object retrieve(List<Object> list) {
 		return null;

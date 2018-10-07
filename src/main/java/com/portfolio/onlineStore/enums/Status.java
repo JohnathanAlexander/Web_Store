@@ -15,5 +15,9 @@ public enum Status {
 	//account does not exist
 	NO_ACCOUNT,
 	
+	//account closed
+	CLOSED,
 	
+	//error associated with the closing of this account
+	ERROR
 }
