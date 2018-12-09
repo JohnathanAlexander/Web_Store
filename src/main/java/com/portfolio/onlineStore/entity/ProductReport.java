@@ -5,13 +5,15 @@ public class ProductReport extends Report{
 	private int numTotalProducts;
 	private int numTotalActiveProducts;
 	private int numTotalInactiveProducts;
+	public ProductReport() {
+		super();
+	}
 	private ArrayList<Product> featuredProducts;
 	{
 		this.numTotalProducts = 0;
 		this.numTotalActiveProducts = 0;
 		this.numTotalInactiveProducts = 0;
 	}
-	public ProductReport() {}
 	
 	public void setNumTotalProducts(int num) {
 		this.numTotalProducts = num;
@@ -36,5 +38,17 @@ public class ProductReport extends Report{
 	}
 	public List<Product> getFeaturedProducts(){
 		return this.featuredProducts;
+	}
+
+	@Override
+	public void setReportName(String repName) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void getReportName() {
+		// TODO Auto-generated method stub
+		
 	}
 }

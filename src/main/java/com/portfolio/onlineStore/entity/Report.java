@@ -1,21 +1,18 @@
 package com.portfolio.onlineStore.entity;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
-public class Report {
+import com.portfolio.onlineStore.util.DateUtility;
+
+public abstract class Report {
 	protected String reportName;
-	private final String REPORTDATE;
-	{
-		this.REPORTDATE = new SimpleDateFormat("yyyy-MM-dd HH:MM:SS").format(new java.util.Date());
+	private final LocalDate REPORT_DATE;
+	public Report() {
+		REPORT_DATE = DateUtility.getInstance().getDate();
 	}
-	public Report() {}
-	public void setReportName(String repName) {
-		this.reportName = repName;
-	}
-	public String getReportName() {
-		return this.reportName;
-	}
-	public String getDate() {
-		return this.REPORTDATE;
-	}
+	
+	public abstract void setReportName(String repName);
+	public abstract void getReportName();
+	
 }
