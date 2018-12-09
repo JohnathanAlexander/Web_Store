@@ -23,12 +23,21 @@ public class UserService extends Service{
 			currUser.setUsername(user.getUsername());
 			
 			currUser.setPassword(EncryptionUtility.encrypt(user.getPassword()));
-			currUser.setRole(Role.EMPLOYEE);
-			currUser.setUserId(4696566);
+			currUser.setRole(Role.USER);//Can be updated by a manager/admin role later. Default is user
 		
 		storage.setCurrentUser(currUser);
 		
 		return currUser;
+	}
+	public User register(User user) {
+		User regUser = new User();
+		regUser = user;
+		regUser.setPassword(EncryptionUtility.encrypt(user.getPassword()));
+		
+		regUser = ejb.create(regUser.getUsername(), regUser.getPassword(), regUser.getFirstName(), regUser.getLastName(), regUser.getEmail());
+		storage.setCurrentUser(regUser);
+		
+		return regUser;
 	}
 	
 	public Status close(User user) {

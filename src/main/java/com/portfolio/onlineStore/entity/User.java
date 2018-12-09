@@ -16,22 +16,12 @@ public class User{
 	private String password;
 	private String dbRole;
 	private Role role;
-	
-	private boolean isActive;
-	/*
-	private String userAuthLevel = "user";
-	private String email;
-
 	private String firstName;
 	private String lastName;
+	private String email;
 	
-	private boolean isLoggedIn;
-	private boolean isRegistered;
-	private boolean stayLoggedIn;
+	private boolean isActive;
 	
-	private String cookieName;
-	private String cookieValue;
-	private String notes;*/
 	
 	@Id
 	@Column(name = "user_id")
@@ -45,6 +35,24 @@ public class User{
 	@Column(name = "password")
 	public String getPassword() {
 		return password;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	@Column(name = "role")//TODO: needs to join with role table to get string
 	public String getDbRole() {
