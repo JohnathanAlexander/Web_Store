@@ -1,15 +1,15 @@
 package com.portfolio.onlineStore.service;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.ejb.EJB;
+
 import com.portfolio.onlineStore.ejb.UserSessionBean;
 import com.portfolio.onlineStore.entity.User;
 import com.portfolio.onlineStore.entity.UserInformation;
 import com.portfolio.onlineStore.enums.Role;
 import com.portfolio.onlineStore.enums.Status;
-
-import java.util.List;
-
-import java.sql.SQLException;
-
-import javax.ejb.EJB;
+import com.portfolio.onlineStore.util.EncryptionUtility;
 
 public class UserService extends Service{
 	@EJB
@@ -21,7 +21,8 @@ public class UserService extends Service{
 		
 			currUser = new User();
 			currUser.setUsername(user.getUsername());
-			currUser.setPassword(user.getPassword());
+			
+			currUser.setPassword(EncryptionUtility.encrypt(user.getPassword()));
 			currUser.setRole(Role.EMPLOYEE);
 			currUser.setUserId(4696566);
 		
